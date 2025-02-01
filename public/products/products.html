@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Salah Attar">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <title>Madad-Products</title>
+</head>
+<body>
+    <div class="sec_main_nav">
+        <ul class="nav__links_sec">
+            <li data-key="home" data-url="../home/home.html">Home</li>
+            <li data-key="products" data-url="./products.html">Products</li>
+        </ul>
+    </div>
+    <section class="home_section">
+        <header>
+            <nav class="main_nav">
+                <div class="logo" onclick="window.location.href = '/home/home.html'">
+                    <span>Madad Gate</span>
+                </div>
+                <div class="lang_container">
+                    <select id="language-select" class="lang_main">
+                        <option disabled selected>Lang</option>
+                        <option class="language-button" data-lang="en">ENG</option>
+                        <option  class="language-button" data-lang="ar">ARB</option>
+                        <option class="language-button" data-lang="zh">中文</option>
+                    </select>
+                </div>
+                <ul class="nav__links">
+                    <li data-key="home" data-url="../home/home.html">Home</li>
+                    <li  data-key="products" data-url="./products.html">Products</li>
+                </ul>
+                <div class="sec_nav" onclick="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="main_section_products">
+            <div class="products_header">
+                <strong data-key="OurProducts" class="title_header">Our Products</strong>
+                <p data-key="ProductsIntro">Check out our full collection of products tailored to your needs</p>
+                <ul class="products_category">
+                    <li data-key="AllProducts" class="category-item" data-category="all">All products</li>
+                    <li data-key="CarbonSteel" class="category-item" data-category="Carbon Steel">Carbon Steel</li>
+                    <li data-key="BuildingMaterials" class="category-item" data-category="Building Materials">Building Materials</li>
+                    <li data-key="FabricationService" class="category-item" data-category="Fabrication Service">Fabrication Service</li>
+                    <li data-key="CoatingService" class="category-item" data-category="Coating Service">Coating Service</li>
+                    <li data-key="AlloySteel" class="category-item" data-category="Alloy Steel">Alloy Steel</li>
+                </ul>
+            </div>
+
+            <div class="products_wrapper">
+                <!-- Products here? -->
+            </div>
+        </div>
+
+        <div class="footer_section">
+            <div class="col_social_media_container">
+                <div class="logo" onclick="window.location.href = '/home'">
+                    <strong>Madad Gate</strong>
+                </div>
+                <p>
+                    Madad Gate Trading: Empowering growth and excellence in every project.                 </p>
+                <ul class="social_media">
+                    <li>
+                        <img src="./icons/twitter.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./icons/facebook-app-symbol.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./icons/instagram.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./icons/linkedin.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_sec_conatainer">
+               
+                <div class="col_pages">
+                    <strong data-key="contactSpan">Contact</strong>
+                    <ul class="pages_list">
+                        <li>
+                            <p><a href="mailto:sales@madadgate.com">sales@madadgate.com</a></p>
+                        </li>
+                        <li>
+                            <p>+966 13 831 1115</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map_container" onClick="window.open('https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D8%A8%D9%88%D8%A7%D8%A8%D8%A9+%D8%A7%D9%84%D9%85%D8%AF%D8%AF+%D9%84%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%E2%80%AD/@26.4423074,50.0431477,18.25z/data=!4m6!3m5!1s0x3e49fdc74aef93f5:0x3ce5c936434707ee!8m2!3d26.4417973!4d50.042598!16s%2Fg%2F11s4yxz56j?entry=tts&g_ep=EgoyMDI1MDEwMi4wIPu8ASoASAFQAw%3D%3D', '_blank')" style="cursor:pointer">
+                <img src="./imgs/map.png" alt="">
+            </div>
+    </div>
+    </section>
+
+
+
+    <script src="./scripts/script.js"></script>
+    <script src="../lang/language-switcher.js"></script>
+</body>
+</html>

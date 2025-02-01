@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Management</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+        <div class="homeSection">
+            <h1>بوابة المدد</h1>
+    
+            <!-- Add Product Form -->
+            <h2>اضافة منتج</h2>
+            <form id="addProductForm" method="POST" enctype="multipart/form-data">
+                <label>
+                    اسم المنتج
+                    <input type="text" name="name" required>
+                </label><br>
+                <label>
+                    النوع:
+                    
+                    <select name="category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="Carbon Steel">Carbon Steel</option>
+                        <option value="Building Materials">Building Materials</option>
+                        <option value="Alloy Steel">Alloy Steel</option>
+                        <option value="Fabrication Service">Fabrication Service</option>
+                        <option value="Coating Service">Coating Service</option>
+                    </select>
+                
+                </label><br>
+                <label>
+                    وصف المنتج:
+                    <input type="text" name="description" required>
+                </label><br>
+                <label>
+                    Available Sizes (comma-separated):
+                    <input type="text" name="available_sizes" required>
+                </label><br>
+                <label>
+                    Standards:
+                    <input type="text" name="standards" required>
+                </label><br>
+                <button type="submit">اضافة المنتج</button>
+            </form>
+            <h2>اضافة صورة داعمة</h2>
+            <form id="imageUploadForm" method="POST" enctype="multipart/form-data">
+                <label>
+                    المنتج ID:
+
+                    <input type="text" name="product_id" id="product_id" placeholder="Enter Product ID" required>
+                </label><br>
+            
+                <label>
+                    صورة داعمة:
+                    <input type="file" name="supplier_image" accept="image/*" id="supplier_image" required>
+                </label><br>
+                <button type="submit">Upload Image</button>
+            </form>
+            
+    
+            <h2>اضافة صورة رئيسية</h2>
+            <form id="addMainImageForm" method="POST" enctype="multipart/form-data">
+                <label>
+                    المنتج ID:
+                    <input type="number" name="product_id" required>
+                </label><br>
+                <label>
+                    الصورة الرئيسية:
+                    <input type="file" name="main_image" accept="image/*" required>
+                </label><br>
+                <button type="submit">اضافة الصورة الرئيسية</button>
+            </form>
+
+            <h2>اضافة صور اضافية</h2>
+            <form id="addAdditionalImageForm" method="POST" enctype="multipart/form-data">
+                <label>
+                    المنتج ID:
+                    <input type="number" name="product_id" required>
+                </label><br>
+                <label>
+                    صورة اضافية:
+                    <input type="file" name="additional_image" accept="image/*" required>
+                </label><br>
+                <button type="submit">اضافة صورة اضافية</button>
+            </form>
+
+            
+
+            
+            
+            <!-- Product List -->
+            <h2>Products</h2>
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>الاسم</th>
+                        <th>النوع</th>
+                        <th>الوصف</th>
+                        <th>Available Sizes</th>
+                        <th>Standards</th>
+                        <th>الصورة الداعمة</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <!-- Image List -->
+            <h2>Images</h2>
+            <table id="imageTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th> المنتج ID</th>
+                        <th>الصورة الاساسية</th>
+                        <th>الصور الاضافية</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </body>
+    <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+        fetchProducts();
+
+        fetchImages();
+    });
+
+    // ======= Add Product =======
+    document.getElementById('addProductForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(this);
+
+        fetch(`/api/products`, {
+            method: 'POST',
+            body: formData,
+        })
+            .then(handleResponse)
+            .then(data => {
+                alert(`Product added successfully! Product ID: ${data.id}`);
+                this.reset();
+                fetchProducts(); 
+            })
+            .catch(handleError);
+    });
+
+
+
+    // ======= Handle Main Image Submission =======
+    document.getElementById('addMainImageForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        const productId = document.querySelector('#addMainImageForm input[name="product_id"]').value;
+        const mainImage = document.querySelector('#addMainImageForm input[name="main_image"]').files[0];
+
+        formData.append('product_id', productId);
+        formData.append('main_image', mainImage);
+
+        try {
+            const response = await fetch(`/api/images/main`, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                console.log('Main image uploaded successfully:', result);
+                alert('Main image uploaded successfully');
+                document.getElementById('addMainImageForm').reset();
+            } else {
+                console.error('Error:', result.error);
+                alert('Failed to upload main image: ' + result.error);
+            }
+        } catch (error) {
+            console.error('Error uploading main image:', error);
+            alert('An error occurred: ' + error.message);
+        }
+    });
+
+    // ======= Handle Additional Image Submission =======
+    document.getElementById('addAdditionalImageForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        const productId = document.querySelector('#addAdditionalImageForm input[name="product_id"]').value;
+        const additionalImage = document.querySelector('#addAdditionalImageForm input[name="additional_image"]').files[0];
+
+        formData.append('product_id', productId);
+        formData.append('additional_image', additionalImage);
+
+        try {
+            const response = await fetch(`/api/images/additional`, {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                console.log('Additional image uploaded successfully:', result);
+                alert('Additional image uploaded successfully');
+                document.getElementById('addAdditionalImageForm').reset();
+            } else {
+                console.error('Error:', result.error);
+                alert('Failed to upload additional image: ' + result.error);
+            }
+        } catch (error) {
+            console.error('Error uploading additional image:', error);
+            alert('An error occurred: ' + error.message);
+        }
+    });
+
+    // ======= Fetch Products =======
+    function fetchProducts() {
+        fetch(`/api/products`)
+            .then(handleResponse)
+            .then(products => {
+                const tableBody = document.querySelector('#productTable tbody');
+                tableBody.innerHTML = '';
+
+                products.forEach(product => {
+                    const row = document.createElement('tr');
+                    row.dataset.id = product.id;
+
+                    row.innerHTML = `
+                        <td>${product.id}</td>
+                        <td>${product.name}</td>
+                        <td>${product.category}</td>
+                        <td>${product.description}</td>
+                        <td>${product.available_sizes}</td>
+                        <td>${product.standards}</td>
+                        <td class="simg"><img src="/uploads/${product.supplier_image}" alt="${product.name}" width="50"></td>
+                        <td>
+                            <button onclick="deleteProduct(${product.id})">Delete</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(handleError);
+    }
+
+    // ======= Fetch Images =======
+    function fetchImages() {
+        fetch(`/api/images`)
+            .then(handleResponse)
+            .then(images => {
+                const tableBody = document.querySelector('#imageTable tbody');
+                tableBody.innerHTML = '';
+
+                images.forEach(image => {
+                    const row = document.createElement('tr');
+                    row.dataset.id = image.id;
+
+                    row.innerHTML = `
+                        <td>${image.id}</td>
+                        <td>${image.product_id}</td>
+                        <td class="simg"><img src="/uploads/${image.main_image}" alt="Main Image" width="50"></td>
+                        <td class="simg"><img src="/uploads/${image.additional_image}" alt="Additional Image" width="50"></td>
+                        <td>
+                            <button onclick="deleteImage(${image.id})">Delete</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(handleError);
+    }
+
+    // ======= Delete Product =======
+    function deleteProduct(id) {
+        fetch(`/api/products/${id}`, {
+            method: 'DELETE',
+        })
+            .then(handleResponse)
+            .then(data => {
+                alert('Product deleted successfully');
+                document.querySelector(`#productTable tr[data-id='${id}']`).remove();
+            })
+            .catch(handleError);
+    }
+
+    // ======= Delete Image =======
+    function deleteImage(id) {
+        fetch(`/api/images/${id}`, {
+            method: 'DELETE',
+        })
+            .then(handleResponse)
+            .then(data => {
+                alert('Image deleted successfully');
+                document.querySelector(`#imageTable tr[data-id='${id}']`).remove();
+            })
+            .catch(handleError);
+    }
+
+    // ======= Utility Functions =======
+    function handleResponse(response) {
+        if (!response.ok) {
+            throw new Error(`Server responded with error: ${response.status}`);
+        }
+        return response.json();
+    }
+    function handleError(error) {
+        console.error('Error:', error);
+        alert(`An error occurred: ${error.message}`);
+    }
+
+
+
+
+    document.getElementById('imageUploadForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        const productId = document.getElementById('product_id').value; // Get the product_id value
+        const imageFile = document.getElementById('supplier_image').files[0]; // Get the selected image file
+
+        if (!imageFile) {
+            alert('Please select an image to upload.');
+            return;
+        }
+
+        formData.append('product_id', productId); 
+        formData.append('supplier_image', imageFile); 
+
+        try {
+            const response = await fetch(`/api/images/supplier`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Image uploaded successfully:', result);
+                alert('Image uploaded successfully');
+                document.getElementById('imageUploadForm').reset(); // Reset the form after successful upload
+            } else {
+                const errorResult = await response.json();
+                console.error('Error:', errorResult.error);
+                alert('Failed to upload image: ' + errorResult.error);
+            }
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            alert('An error occurred: ' + error.message);
+        }
+    });
+    </script>
+</body>
+</html>

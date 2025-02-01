@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="SalahAttar">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <title>Madad-Contact</title>
+</head>
+<body>
+    
+    <div class="sec_main_nav">
+        <ul class="nav__links_sec">
+            <li data-key="home" data-url="/home/home.html">Home</li>
+            <li data-key="products" data-url="/products/products.html">Products</li>
+        </ul>
+    </div>
+
+    <section class="home_section">
+        <header>
+            <nav class="main_nav">
+                <div class="logo" onclick="window.location.href = '/home/home.html'">
+                    <span>Madad Gate</span>
+                </div>
+                <ul class="nav__links">
+                    <li data-key="home" data-url="/home/home.html">Home</li>
+                    <li data-key="products" data-url="/products/products.html">Products</li>
+                </ul>
+                <div class="sec_nav" onclick="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </div>
+            </nav>
+        </header>
+
+        <div class="contact_section">
+            <div class="header_title">
+                <strong data-key="contactUs">Contact Us</strong>
+                <p data-key="contactUsContent">To order your product , you can find us at </p>
+            </div>
+            <div class="cards_wrapper">
+                <div class="card_container">
+                    <div class="img_container" onclick="window.open('https://api.whatsapp.com/send/?phone=966508666419&text&type=phone_number&app_absent=0', '_blank')">
+                        <img src="./icons/whatsapp.png" alt="">
+                    </div>
+                    <span>WhatsApp</span>
+                </div>
+                <div class="card_container">
+                    <div class="img_container"  onclick="window.location.href = 'tel:+966-138311115'">
+                        <img src="./icons/phone-call.png" alt="">
+                    </div>
+                    <span>Phone</span>
+                </div>
+                <div class="card_container">
+                    <div class="img_container" onclick="window.location.href = './contact_form.html'">
+                        <img src="./icons/email.png" alt="">
+                    </div>
+                    <span>Email</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="footer_section">
+            <div class="col_social_media_container">
+                <div class="logo" onclick="window.location.href = '/home'">
+                    <strong>Madad Gate</strong>
+                </div>
+
+                <p>
+                    Madad Gate Trading: Empowering growth and excellence in every project.                 </p>
+                <ul class="social_media">
+                    <li>
+                        <img src="./icons/twitter.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./icons/facebook-app-symbol.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./icons/instagram.png" alt="">
+                    </li>
+                    <li>
+                        <img src="./icons/linkedin.png" alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_sec_conatainer">
+                <div class="col_pages">
+                </div>
+
+                <div class="col_pages">
+                    <strong data-key="contactSpan">Contact</strong>
+                    <ul class="pages_list">
+                        <li>
+                            <p><a href="mailto:sales@madadgate.com">sales@madadgate.com</a></p>
+                        </li>
+                        <li>
+                            <p>+966 13 831 1115</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="map_container" onClick="window.open('https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D8%A8%D9%88%D8%A7%D8%A8%D8%A9+%D8%A7%D9%84%D9%85%D8%AF%D8%AF+%D9%84%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%E2%80%AD/@26.4423074,50.0431477,18.25z/data=!4m6!3m5!1s0x3e49fdc74aef93f5:0x3ce5c936434707ee!8m2!3d26.4417973!4d50.042598!16s%2Fg%2F11s4yxz56j?entry=tts&g_ep=EgoyMDI1MDEwMi4wIPu8ASoASAFQAw%3D%3D', '_blank')" style="cursor:pointer">
+                <img src="./imgs/map.png" alt="">
+            </div>
+    </div>
+    </section>
+
+
+
+    <script src="../lang/language-switcher.js"></script>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

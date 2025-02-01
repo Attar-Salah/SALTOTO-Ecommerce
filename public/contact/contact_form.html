@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="SalahAttar">
+    <meta name="description" content="Madad Gate Co. offers premium steel, dowel bars, epoxy-coated rebar, and other high-quality building materials for your construction projects. Contact us for reliable products.">
+    <meta name="keywords" content="steel, building materials, steel bars, dowel bars, epoxy-coated rebar, construction supplies, Madad Gate, Saudi Arabia, building materials supplier">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <title>Madad Gate Co. - High-Quality Steel and Building Materials</title>
+</head>
+<body>
+    
+    <div class="sec_main_nav">
+        <ul class="nav__links_sec">
+            <li data-key="home" data-url="/home/home.html">Home</li>
+            <li data-key="products" data-url="/products/products.html">Products</li>
+        </ul>
+    </div>
+
+    <section class="home_section">
+        <header>
+            <nav class="main_nav">
+                <div class="logo" onclick="window.location.href = '/home/home.html'">
+                    <span>Madad Gate</span>
+                </div>
+                <ul class="nav__links">
+                    <li data-key="home" data-url="/home/home.html">Home</li>
+                    <li data-key="products" data-url="/products/products.html">Products</li>
+                </ul>
+                <div class="sec_nav" onclick="toggleMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="undefined"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </div>
+            </nav>
+        </header>
+
+    <div class="hr"></div>
+        <section class="main_form">
+            
+            <div class="contact-form-container">
+            <header class="contact-form-header">
+                <h1 data-key="contactUs">Contact Us</h1>
+                <p data-key="contactUsContent">We'd love to hear from you! Please fill out the form below, and we'll get back to you as soon as possible.</p>
+            </header>
+        
+            <form id="contactForm" action="/submit-form" method="POST" class="form">
+                <!-- Name Field -->
+                <div class="input-container">
+                <label for="name" data-key="name" class="contact-form-label">Full Name:</label>
+                <input type="text" id="name" name="name" class="contact-form-input" placeholder="Enter your full name" required>
+                </div>
+            
+                <!-- Address Field -->
+                <div class="input-container">
+                <label for="address" data-key="address" class="contact-form-label">Address:</label>
+                <input type="text" id="address" name="address" class="contact-form-input" placeholder="Enter your address" required>
+                </div>
+            
+                <!-- Phone Field -->
+                <div class="input-container">
+                <label for="phone" data-key="phone"  class="contact-form-label">Phone Number:</label>
+                <input type="text" id="phone" name="phone" class="contact-form-input" placeholder="Enter your Phone" required>
+                </div>
+            
+                <!-- Product Options -->
+                <div class="input-container">
+                <label for="product" data-key="select_product" class="contact-form-label">Select a Product:</label>
+                <select id="product" name="product" class="contact-form-input" required>
+                    <option value="" disabled selected>Choose a product</option>
+                    <option value="Steel Bar ASTM 615">Steel Bar ASTM 615</option>
+                    <option value="Epoxy Coated Rebar Steel ASTM A775M">Epoxy Coated Rebar Steel ASTM A775M</option>
+                    <option value="Welded Wire Mesh ASTM A497/A496">Welded Wire Mesh ASTM A497/A496</option>
+                    <option value="Epoxy Coated Wire Mesh ASTM A884M">Epoxy Coated Wire Mesh ASTM A884M</option>
+                    <option value="Galvanizing Wire Mesh ASTM A797">Galvanizing Wire Mesh ASTM A797</option>
+                    <option value="White Timber">White Timber</option>
+                    <option value="Plywood">Plywood</option>
+                    <option value="Tie Wire Galvanized & Epoxy PVC Tie Wire">Tie Wire Galvanized & Epoxy PVC Tie Wire</option>
+                    <option value="Bolts">Bolts</option>
+                    <option value="Commercial & Structural Steel">Commercial & Structural Steel</option>
+                    <option value="Beams">Beams</option>
+                    <option value="Channels">Channels</option>
+                    <option value="Steel Plate">Steel Plate</option>
+                    <option value="Angles & Bars">Angles & Bars</option>
+                    <option value="Tubes">Tubes</option>
+                    <option value="Seamless Carbon Steel Pipes">Seamless Carbon Steel Pipes</option>
+                </select>
+            </div>
+            
+            <!-- Subject Field -->
+            <div class="input-container">
+                <label for="subject" data-key="subject"  class="contact-form-label">Subject:</label>
+                <input type="text" id="subject" name="subject" class="contact-form-input" placeholder="Enter the subject of your message" required>
+            </div>
+            
+            <!-- Message Field -->
+            <div class="input-container">
+                <label for="message" data-key="message"  class="contact-form-label">Message:</label>
+                <textarea id="message" name="message" class="contact-form-input" placeholder="Enter your message" required></textarea>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="button_email">
+                <button type="submit" data-key="submitEmail"  class="submit">Send Message</button>
+            </div>
+            </form>
+            </div>
+        </section>
+
+
+    <div class="footer_section">
+        <div class="col_social_media_container">
+            <div class="logo" onclick="window.location.href = '/home'">
+                <strong>Madad Gate</strong>
+            </div>
+
+            <p>
+                Madad Gate Trading: Empowering growth and excellence in every project.                 </p>
+            <ul class="social_media">
+                <li>
+                    <img src="./icons/twitter.png" alt="">
+                </li>
+                <li>
+                    <img src="./icons/facebook-app-symbol.png" alt="">
+                </li>
+                <li>
+                    <img src="./icons/instagram.png" alt="">
+                </li>
+                <li>
+                    <img src="./icons/linkedin.png" alt="">
+                </li>
+            </ul>
+        </div>
+        <div class="footer_sec_conatainer">
+            <div class="col_pages">
+            </div>
+
+            <div class="col_pages">
+                <strong data-key="contactSpan">Contact</strong>
+                <ul class="pages_list">
+                    <li>
+                        <p><a href="mailto:sales@madadgate.com">sales@madadgate.com</a></p>
+                    </li>
+                    <li>
+                        <p>+966 13 831 1115</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="map_container" onClick="window.open('https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D8%A8%D9%88%D8%A7%D8%A8%D8%A9+%D8%A7%D9%84%D9%85%D8%AF%D8%AF+%D9%84%D9%84%D8%AD%D8%AF%D9%8A%D8%AF%E2%80%AD/@26.4423074,50.0431477,18.25z/data=!4m6!3m5!1s0x3e49fdc74aef93f5:0x3ce5c936434707ee!8m2!3d26.4417973!4d50.042598!16s%2Fg%2F11s4yxz56j?entry=tts&g_ep=EgoyMDI1MDEwMi4wIPu8ASoASAFQAw%3D%3D', '_blank')" style="cursor:pointer">
+            <img src="./imgs/map.png" alt="">
+        </div>
+</div>
+</section>
+
+
+
+    <script src="./scripts/script.js"></script>
+    <script src="../lang/language-switcher.js"></script>
+</body>
+</html>

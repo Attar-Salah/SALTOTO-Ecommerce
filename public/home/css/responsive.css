@@ -1,0 +1,482 @@
+@media screen and (max-width: 1870px) {
+    .home_section {
+        width: 90%;
+    }
+    .partners_main {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+    }
+
+    .partner_card_two_col {
+        margin-top: 0px;
+    }
+}
+
+/* 1426px and below */
+@media screen and (max-width: 1426px) {
+    .large_intro {
+        font-size: 2.9rem;
+        line-height: 70px;
+    }
+
+    .extra_content {
+        font-size: 1rem;
+    }
+
+    .home_main_button_container button {
+        padding: 9px 24px;
+        font-size: 0.9rem;
+    }
+
+    .partners_section {
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 50px;
+        padding: 20px 40px;
+        align-items: flex-start;
+    }
+
+    .about_section {
+        height: fit-content;
+        padding: 0;
+        padding-right: 30px;
+    }
+
+    .partner_col_cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .large_intro {
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    .map_container {
+        margin-top: 20px;
+    }
+
+    .rate_container {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0 40px;
+    }
+
+    .home_main_button_container {
+        flex-direction: column;
+    }
+
+    .home_main {
+        height: fit-content;
+    }
+}
+
+/* 940px and below */
+@media screen and (max-width: 940px) {
+    .footer_sec_conatainer {
+        display: flex;
+        justify-content: space-between;
+        gap: 100px;
+        margin-top: 50px;
+    }
+
+    .home_section {
+        width: 90%;
+    }
+
+    .standards_wrapper {
+        gap: 100px;
+    }
+
+    .app_header p {
+        width: 100%;
+        font-size: 1.1rem;
+    }
+}
+
+/* 836px and below */
+@media screen and (max-width: 836px) {
+    .product_section_header {
+        width: 100%;
+    }
+
+    .rate_container_main {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .home_main {
+        padding: 20px 0;
+    }
+
+    .about_section {
+        flex-wrap: wrap;
+    }
+
+    .partner_header p {
+        width: 100%;
+    }
+
+    .about_text_content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0 30px 20px;
+        width: 100%;
+    }
+
+    .large_intro {
+        font-size: 2.4rem;
+        font-weight: var(--primary-weight);
+        line-height: 79px;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .img_container {
+        height: fit-content;
+        padding: 30px 0;
+    }
+
+    .home_main_text_content {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__links {
+        display: none;
+    }
+
+    .sec_nav {
+        display: flex;
+    }
+
+    .about_img {
+        min-width: auto;
+    }
+
+    .home_main_button_container button {
+        padding: 14px 90px;
+    }
+
+    .rate_content {
+        width: 100%;
+    }
+
+    .rate_container_main {
+        gap: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sec_main_nav {
+        width: 100%;
+    }
+
+    .rate_container {
+        padding: 20px;
+    }
+
+    .rate {
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* 600px and below */
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 12px;
+    }
+
+    :root {
+        --marquee-width: 100vw;
+        --marquee-height: 16vh;
+        --marquee-elements-displayed: 3;
+    }
+
+    .marquee:before,
+    .marquee:after {
+        width: 5rem;
+    }
+
+    .about_text_content p {
+        width: 100%;
+    }
+
+    .footer_section {
+        flex-direction: column;
+        gap: 50px;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .pages_list {
+        font-size: 1.6rem;
+    }
+
+    .col_social_media_container p {
+        text-wrap: wrap;
+        width: 100%;
+    }
+    @media screen and (max-width: 600px) {
+    .footer_sec_conatainer {
+        flex-direction: row;
+        gap:47px;
+    }
+}
+}
+/* 450px and below */
+@media screen and (max-width: 450px) {
+    .rate_container_main {
+        flex-direction: column;
+    }
+
+    .about_img {
+        height: 278px;
+    }
+
+    .product_category_card {
+        width: 333px;
+        min-width: 306px;
+        height: 342px;
+    }
+
+    .partner_card {
+        width: 255px;
+        height: 261px;
+    }
+
+    .standard_container {
+        width: 341px;
+        height: 291px;
+    }
+
+    .footer_section {
+        gap: 0px;
+    }
+
+ 
+
+    .col_pages strong {
+        font-weight: 700;
+    }
+
+    .map_container {
+        /* margin: auto; */
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+/* 1920px and below */
+@media screen and (max-width: 1920px) {
+    .large_intro {
+        font-size: 3.2rem;
+        line-height: 75px;
+    }
+
+    .extra_content {
+        font-size: 1.1rem;
+    }
+}
+
+/* 1600px and below */
+@media screen and (max-width: 1600px) {
+    .large_intro {
+        font-size: 3rem;
+        line-height: 70px;
+    }
+
+    .extra_content {
+        font-size: 1rem;
+    }
+}
+
+/* 1426px and below */
+@media screen and (max-width: 1426px) {
+    .large_intro {
+        font-size: 2.9rem;
+        line-height: 65px;
+    }
+
+    .extra_content {
+        font-size: 0.95rem;
+    }
+
+
+    .product_category_card {
+        width: 333px;
+        height: 367px;
+    }
+    .partners_main {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .partner_card_two_col {
+        margin-top: 0px;
+    }
+
+   
+
+}
+
+/* 1200px and below */
+@media screen and (max-width: 1200px) {
+    .large_intro {
+        font-size: 2.5rem;
+        line-height: 60px;
+    }
+
+    .extra_content {
+        font-size: 0.9rem;
+    }
+
+    .about_section {
+        flex-direction: column;
+        padding:0;
+        padding-bottom:20px;
+    }
+}
+
+/* 1024px and below */
+@media screen and (max-width: 1024px) {
+    .large_intro {
+        font-size: 2.2rem;
+        line-height: 55px;
+    }
+
+    .extra_content {
+        font-size: 0.85rem;
+    }
+}
+
+/* 900px and below */
+@media screen and (max-width: 900px) {
+    .large_intro {
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    .extra_content {
+        font-size: 0.8rem;
+    }
+}
+
+/* 768px and below */
+@media screen and (max-width: 768px) {
+    .large_intro {
+        font-size: 1.8rem;
+        line-height: 45px;
+    }
+
+    .extra_content {
+        font-size: 0.75rem;
+    }
+}
+
+/* 600px and below */
+@media screen and (max-width: 600px) {
+    .large_intro {
+        font-size: 1.6rem;
+        line-height: 40px;
+    }
+
+    .extra_content {
+        font-size: 0.7rem;
+    }
+}
+
+/* 480px and below */
+@media screen and (max-width: 480px) {
+    .large_intro {
+        font-size: 1.9rem;
+        line-height: 35px;
+    }
+
+    .extra_content {
+        font-size: 0.8rem;
+    }
+    .home_section {
+        width: 95%;
+    }
+}
+
+/* 360px and below */
+@media screen and (max-width: 360px) {
+    .large_intro {
+        font-size: 1.2rem;
+        line-height: 30px;
+    }
+
+    .extra_content {
+        font-size: 0.6rem;
+    }
+   
+}
+
+
+
+@media screen and (max-width: 390px) {
+    .product_category_card {
+        width: 322px;
+        height: 317px;
+    }
+}
+
+
+@media screen and (max-width:1600px) {
+    .product_category_card {
+        width: 333px;
+        min-width: 120px;
+    }
+    
+}
+
+
+@media screen and (max-width: 600px) {
+    .footer_sec_conatainer {
+        flex-direction: row;
+        gap:47px;
+    }
+}
+
+@media screen and (max-width : 1632px){
+.map_container { 
+    margin-top: 50px;
+}
+
+}
+
+@media screen and (max-width : 640px){
+    .map_container { 
+        margin-top: 0px;
+    }
+    
+}

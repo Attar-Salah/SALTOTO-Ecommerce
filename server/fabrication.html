@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Farbrication Pics</title>
+</head>
+<body>
+    <div class="homeSection">
+        <h1>بوابة المدد</h1>
+
+    <form id="addWorkPic" method="POST" enctype="multipart/form-data">
+        <label>
+            Standards:
+            <input type="file" name="fabrication_img" accept="image/*" required>
+        </label><br>
+        <button type="submit">اضافة الصورة</button>
+    </form>
+
+
+
+    <div id="fabricationServiceContainer" class="fabricationServiceContainer">
+        <!-- Pictures will be dynamically inserted here -->
+    </div>
+    </div>
+    
+    <script>
+    
+    
+    document.getElementById('addWorkPic').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        const fileInput = document.querySelector('input[name="fabrication_img"]');
+        formData.append('fabrication_img', fileInput.files[0]);
+
+        try {
+            const response = await fetch(`/api/fabrication-pics`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('File uploaded successfully:', result);
+                alert('File uploaded successfully');
+                location.reload();
+            } else {
+                const errorResult = await response.json();
+                console.error('Error:', errorResult.error);
+                alert('Failed to upload file: ' + errorResult.error);
+            }
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            alert('An error occurred: ' + error.message);
+        }
+    });
+    function generateFabricationPics() {
+            fetch(`/api/fabrication-pics`)
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach(pic => {
+                        let picWrapper = document.createElement('div');
+                        picWrapper.className = 'picWrapper';
+
+                        let fabImg = document.createElement('img');
+                        fabImg.src = '/IMG/' + pic.image_path;
+                        fabImg.alt = pic.description;
+
+                        let buttonDelete = document.createElement('button');
+                        buttonDelete.className = 'delete_button';
+                        buttonDelete.textContent = 'Delete';
+
+                        buttonDelete.addEventListener('click', () => {
+                            deleteFabricationPic(pic.id); // Call the delete function
+                        });
+
+                        picWrapper.appendChild(fabImg);
+                        picWrapper.appendChild(buttonDelete);
+                        fabricationServiceContainer.appendChild(picWrapper);
+                    });
+                })
+                .catch(err => {
+                    console.error("Error fetching fabrication pics:", err);
+                });
+        }
+
+        function deleteFabricationPic(picId) {
+            fetch(`/api/fabrication-pics/${picId}`, {
+                method: 'DELETE',
+            })
+                .then(res => {
+                    if (res.ok) {
+                        const picWrapper = document.querySelector(`[data-id="${picId}"]`);
+                        if (picWrapper) {
+                            picWrapper.remove();
+                        }
+                        console.log('Picture deleted successfully');
+                        location.reload();
+                    } else {
+                        console.error('Failed to delete picture');
+                    }
+                })
+                .catch(err => {
+                    console.error('Error deleting picture:', err);
+                });
+        }
+
+        generateFabricationPics();
+
+
+    </script>
+    <script src="./scripts/script.js"></script>
+</body>
+</html>
